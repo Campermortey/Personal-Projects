@@ -1,0 +1,65 @@
+﻿@model AddressBook.Web.Models.SearchRequest
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<p>Enter the last name that you want to find</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SearchText, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SearchText)
+            @Html.ValidationMessageFor(model => model.SearchText)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Search" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+@if (Model.SearchResults != null)
+{
+    <div class="row">
+        <div class="col-sm-12">
+            @if (Model.SearchResults.Any())
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var contact in Model.SearchResults.OrderBy(c => c.LastName))
+                        {
+                            <tr>
+                                <td>@contact.LastName, @contact.FirstName</td>
+                                <td>@contact.Email</td>
+                                <td>@contact.Phone</td>
+                                <td>Edit | @Html.ActionLink("Delete", "Delete", "AddressBook", new { id = contact.Id }, null)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Could not find any contacts with that last name!</p>
+            }           
+        </div>
+    </div>    
+}
+

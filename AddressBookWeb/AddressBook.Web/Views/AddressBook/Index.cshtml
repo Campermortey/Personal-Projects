@@ -1,0 +1,45 @@
+﻿@model List<AddressBook.DTOs.Contact>
+
+@{
+    ViewBag.Title = "Address book list";
+}
+
+<h2>List of Contacts</h2>
+
+<div class="row">
+    <div class="col-sm-12">
+        @if (TempData["Message"] != null)
+        {
+            <p class="success">@TempData["Message"]</p>
+        }
+        <h4>@Html.ActionLink("Add Contact", "Add", "AddressBook")</h4>
+        @if (Model.Any())
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var contact in Model.OrderBy(c => c.LastName))
+                    {
+                        <tr>
+                            <td>@contact.LastName, @contact.FirstName</td>
+                            <td>@contact.Email</td>
+                            <td>@contact.Phone</td>
+                            <td>@Html.ActionLink("Edit", "Edit", "AddressBook", new{id=contact.Id}, null) | @Html.ActionLink("Delete", "Delete", "AddressBook", new{id=contact.Id}, null)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>            
+        }
+        else
+        {
+            <p>You have not added any contacts yet!</p>
+        }
+    </div>
+    </div>

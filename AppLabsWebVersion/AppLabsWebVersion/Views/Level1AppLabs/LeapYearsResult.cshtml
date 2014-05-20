@@ -1,0 +1,42 @@
+﻿@model AppLabs.Models.Level1Numbers.LeapYearResponse
+
+@{
+    ViewBag.Title = "LeapYearsResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-sm-3 col-sm-offset-3">
+    <div class="bs-example">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading text-center">List of Years</div>
+
+            <!-- Table -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="text-align: center">Year</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <!---Loop through the model dates and print them in the table-->
+                    @foreach (var x in Model.Dates)
+                    {
+                        <tr>
+                            <td style="text-align: center">
+                                @x
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    </tbody>
+    </table>
+</div>
+

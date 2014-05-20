@@ -1,0 +1,33 @@
+﻿@model AppLabs.Models.Level2Numbers.FibonacciSequence
+
+@{
+    ViewBag.Title = "FibonacciSequenceResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Fibonacci Sequence Result</h2>
+
+<div>
+   
+    <hr />
+
+    <div >
+
+        @foreach (var x in Model.Sequence)
+        {
+            
+            <ul class="pagination pagination-lg">
+                <li><a href="#">@x</a></li>
+
+            </ul>
+        }
+
+
+    </div>
+
+</div>
+<br />
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

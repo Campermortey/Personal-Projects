@@ -1,0 +1,43 @@
+﻿@model AppLabs.Models.Level1Numbers.FlooringCalculatorResponse
+
+@{
+    ViewBag.Title = "FloorCalculatorResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <header class="page-header text-center">
+        <h1>Flooring Calculator Result</h1>
+    </header>
+    <div class="col-sm-4 col-sm-offset-2">
+
+        <br />
+
+        <br />
+        <br />
+        <div class="Result">
+            <ul class="list-group">
+                <li class="zoomTarget list-group-item" data-targetsize="0.6" data-closeclick="true">
+                    <!---It is one particular thing in a textbox so we don't need to change the whole HMTL tag-->
+                    <span class="badge">@Model.Area.ToString()</span>
+                    Your Area
+                </li>
+                <li class="zoomTarget list-group-item" data-targetsize="0.6" data-closeclick="true">
+                    <span class="badge">@Model.TotalCost.ToString("c")</span>
+                    Your Total Cost
+                </li>
+                
+            </ul>
+        </div>
+
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">
+        <br />
+
+        <br />
+        <br />
+        <h4>Click to zoom in any box to get a closer look. Just click again to zoom out.</h4>
+    </div>
+
+</div>

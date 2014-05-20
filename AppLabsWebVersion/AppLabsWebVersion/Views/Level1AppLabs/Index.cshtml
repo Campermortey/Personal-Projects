@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class =" container">
+    
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1>Level 1 App Labs for Numbers</h1>
+        <p class="lead">Select the app lab you would like to proceed with:</p>
+        
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>Flooring Calculator</h2>
+                <p>Enter a width, length and the cost per 1 unit of flooring. The program will calculate how much it would cost to cover the area specified with the flooring. </p>
+                <p>@Html.ActionLink("Continue »", "FlooringCalculatorForm", "Level1AppLabs", new { @class = "btn btn-info" }) </p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Leap Years</h2>
+                <p>Enter your starting year and an ending year. The computer will print all the leap years between them (including them if they are also leap years). </p>
+                <p>@Html.ActionLink("Continue »", "LeapYearsForm", "Level1AppLabs", new { @class = "btn btn-info" }) </p> <!---Actionlink that says continue, goes to LeapYearsForm view in the Level1AppLabs controller-->
+            </div>
+            <div class="col-lg-4">
+                <h2>Tip Calculator</h2>
+                <p>Enter the cost of the meal and the tip percentage you want to leave. It prints out the original cost, the tax collected, and the grand total.</p>
+                <p>@Html.ActionLink("Continue »", "TipRequestForm", "Level1AppLabs", new { @class = "btn btn-info" }) </p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+

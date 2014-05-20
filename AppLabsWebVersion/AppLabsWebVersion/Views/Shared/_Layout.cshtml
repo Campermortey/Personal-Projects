@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+
+    
+    <link href="~/Content/CeruleanCSS.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @RenderSection("CustomizeText", false)
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Numbers<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Level 1", "Index", "Level1AppLabs")</li>
+                            <li>@Html.ActionLink("Level 2", "Index", "Level2AppLabs")</li>
+                            <li>@Html.ActionLink("Level 3", "Index", "Level3AppLabs")</li>
+                            <li>@Html.ActionLink("Level 4", "Index", "Level4AppLabs")</li>
+                            <li>@Html.ActionLink("Level 5", "Index", "Level5AppLabs")</li>
+                            <li>@Html.ActionLink("Level 6", "Index", "Level6AppLabs")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Strings & Text<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Level 1", "Index", "Level1StringAppLabs")</li>
+                            <li>@Html.ActionLink("Level 2", "Index", "Level2StringAppLabs")</li>
+                            <li>@Html.ActionLink("Level 3", "Index", "Level3StringAppLabs")</li>
+                            <li>@Html.ActionLink("Level 4", "Index", "Level4StringAppLabs")</li>
+                            <li>@Html.ActionLink("Level 5", "Index", "Level5StringAppLabs")</li>
+                            <li>@Html.ActionLink("Level 6", "Index", "Level6StringAppLabs")</li>
+                            <li>@Html.ActionLink("Level 7", "Index", "Level7StringAppLabs")</li>
+                            <li>@Html.ActionLink("Level 8", "Index", "Level8StringAppLabs")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://www.cloudspore.com" target="_blank">My Blog</a>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year -David Johnson</p>
+    </footer>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.zoomooz.min.js"></script>
+    @RenderSection("scripts", false)
+    @RenderSection("badges", false)
+    @RenderSection("level2", false)
+    @RenderSection("ProgressBar", false)
+    @RenderSection("WrapImages", false)
+    
+</body>
+</html>

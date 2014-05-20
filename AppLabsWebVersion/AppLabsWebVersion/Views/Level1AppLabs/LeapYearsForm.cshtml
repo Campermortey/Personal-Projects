@@ -1,0 +1,45 @@
+﻿@model AppLabsWebVersion.Models.Level1Numbers.LeapYearsValidation
+
+
+@{
+    ViewBag.Title = "LeapYearsForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Leap Years Form</h2>
+
+
+<p>Let's enter some information</p>
+
+<!--Begin form that is a leap years form, from the level1applabs controller, it's a post form, and is html form-->
+@using (Html.BeginForm("LeapYearsForm", "Level1AppLabs", FormMethod.Post, new { role = "form" }))
+{
+    <!--show the validation results if there are any erros above the form-->
+    @Html.ValidationSummary()
+    <form role="form">
+        <div class="row">
+            <label>Beginning Year</label>
+            <div class="input-group col-sm-9">
+                <span class="input-group-addon"></span>
+                <!---This whole html helper becomes the text box which is why you create a new html form-control-->
+                @Html.TextBoxFor(m => m.BeginningDate, new { @class = "form-control", placeholder = "Beginning Year" })
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <label>Ending Year</label>
+            <div class="input-group col-sm-9 ">
+                <span class="input-group-addon"></span>
+                <!---This whole html helper becomes the text box which is why you create a new html form-control-->
+                @Html.TextBoxFor(m => m.EndingDate, new { @class = "form-control", placeholder = "Ending Year" })
+                
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <button type="submit" class="btn btn-default" value="Save">Submit</button>
+        </div>
+    </form>
+}
+ 
+

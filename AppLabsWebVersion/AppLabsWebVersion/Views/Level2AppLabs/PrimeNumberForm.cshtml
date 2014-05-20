@@ -1,0 +1,65 @@
+﻿@using System.Web.UI.WebControls
+@model AppLabsWebVersion.Models.Level2Numbers.PrimeNumberValidation
+
+@{
+    ViewBag.Title = "PrimeNumberForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<h2>Prime Number Form</h2>
+
+   @section CustomizeText{
+
+    <link href="~/Content/CustomizeText.css" rel="stylesheet" />
+} 
+
+@using (Html.BeginForm("PrimeNumberForm", "Level2AppLabs", FormMethod.Post, new { role = "form" }))
+{
+    @Html.ValidationSummary()
+    <form class="bs-example bs-example-form">
+        <div class="row">
+            <div class="col-lg-3">
+                <p>Enter the beginning number</p>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" id="primeSubmit">Submit</button>
+                    </span>
+                    @Html.TextBoxFor(m => m.UserNumber, new { @class = "form-control", id = "userNumber" })
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+
+        </div><!-- /.row -->
+    </form>
+}
+
+<br />
+<div class="list-group col-sm-3">
+    <a href="#" class="list-group-item active">
+        <h4 class="list-group-item-heading">Next Prime Number</h4>
+        <p class="list-group-item-text"><span id="primeResult"></span></p>
+    </a>
+    <p id="formattingP">@Html.ActionLink("Return to Level 2 App Labs", "Index", "Level2AppLabs",  null, new{@class="btn btn-info btn-lg linkText"})</p>
+</div>
+
+
+
+<!-- # is for ids and . is for class-->
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#primeSubmit").click(function (event) {
+                var primeStored = document.getElementById("userNumber").value;
+                $.getJSON('/Level2AppLabs/GetPrime/' + primeStored, function (data) {
+                    $('#primeResult').text(data);
+                    console.log(data);
+
+                });
+            });
+        });
+
+
+    </script>
+}

@@ -1,0 +1,22 @@
+﻿#primeResult {
+    font-weight: bold;
+    font-size: 40px;
+    margin: 0 auto;
+    width: 12px;
+}
+
+.linkText {
+    font-size: 23px;
+    color: #ffffff;
+   
+}
+
+#formattingP {
+    padding-top: 20px;
+    
+}
+
+.btn-info {
+    
+    background-image: linear-gradient(#6daae5, #91C3F3 60%, #3C658B);
+}

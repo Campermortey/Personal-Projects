@@ -1,0 +1,67 @@
+﻿@model AppLabs.Models.Level2Numbers.ReturnChangeResponse
+
+@{
+    ViewBag.Title = "ChangeReturnResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    @section WrapImages{
+
+        <link href="~/Content/ImageWrapping.css" rel="stylesheet" />
+    }
+}
+
+<div id="ChangeResponse">
+    <div class="row col-sm-2">
+
+        <h1>Quarters</h1>
+
+        <div class="image">
+
+            @{
+                for (int i = 0; i < Model.Quarters; i++)
+                {
+                    <img class="img-responsive" width=100 height=50 src="../../Content/Pictures/Coins/quarter.jpg" alt="" />
+                }
+
+            }
+        </div>
+    </div>
+    <div class="row col-sm-2">
+        <h1>Dimes</h1>
+        <div class="image">
+            @{
+                for (int i = 0; i < Model.Dimes; i++)
+                {
+                    <img class="img-responsive" width=80 height=50 src="../../Content/Pictures/Coins/dime.jpg" alt="" />
+                }
+
+            }
+        </div>
+    </div>
+    <div class="row col-sm-2">
+        <h1>Nickles</h1>
+        <div class="image">
+            @{
+                for (int i = 0; i < Model.Nickles; i++)
+                {
+                    <img class="img-responsive" width=80 height=50 src="../../Content/Pictures/Coins/2005_nickel.jpg" alt="" />
+                }
+
+            }
+        </div>
+    </div>
+    <div class="row col-sm-2">
+        <div class="image">
+            <h1>Pennies</h1>
+            @{
+                for (int i = 0; i < Model.Pennies; i++)
+                {
+                    <img class="img-responsive" width=100 height=50 src="../../Content/Pictures/Coins/penny_500.jpg" alt="" />
+                }
+
+            }
+        </div>
+
+    </div>
+
+</div>
